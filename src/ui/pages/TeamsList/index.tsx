@@ -8,28 +8,21 @@ export default function TeamList(): JSX.Element {
   const history = useHistory();
 
   return (
-    <>
-      <S.BackgroundContainer>
-        <S.LigaImage />
-        <S.GreyBlock />
-      </S.BackgroundContainer>
-
-      <S.TeamsContainer>
-        {isLoading ? (
-          <Loader />
-        ) : (
-          <S.Content>
-            <S.Title>Select a team to see its roster</S.Title>
-            <S.ListContainer>
-              {teamList.map(({ name, id }) => (
-                <S.Item key={id} onClick={() => history.push(`team/${id}`)}>
-                  {name}
-                </S.Item>
-              ))}
-            </S.ListContainer>
-          </S.Content>
-        )}
-      </S.TeamsContainer>
-    </>
+    <S.TeamsContainer>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <S.Content>
+          <S.Title>Select a team to see its roster</S.Title>
+          <S.ListContainer>
+            {teamList.map(({ name, id }) => (
+              <S.Item key={id} onClick={() => history.push(`team/${id}`)}>
+                {name}
+              </S.Item>
+            ))}
+          </S.ListContainer>
+        </S.Content>
+      )}
+    </S.TeamsContainer>
   );
 }
