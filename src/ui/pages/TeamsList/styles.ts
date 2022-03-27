@@ -51,6 +51,5 @@ export const Item = styled.p`
   line-height: 1.3;
   letter-spacing: normal;
   color: #46555e;
-  // text-align: center;
   cursor: pointer;
 `;
