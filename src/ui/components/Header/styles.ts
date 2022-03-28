@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  padding: 37px 114px;
+  padding: 23px 114px;
+  padding-right: 0px;
   align-items: center;
   justify-content: center;
 `;
@@ -22,11 +23,4 @@ export const LogoContainer = styled.div`
   height: 44px;
   position: absolute;
   left: 6%;
-`;
-
-export const LoadingContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 120px);
 `;

@@ -5,20 +5,22 @@ import { TeamPlayersData } from "../../data/types/domainTypes";
 type Params = {
   teamPlayers: TeamPlayersData;
   isLoading: boolean;
+  hasError: boolean;
 };
 
 export default function useTeamPlayers(teamId: string): Params {
   const [teamPlayers, setTeamPlayers] = useState<TeamPlayersData>(
     {} as TeamPlayersData
   );
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [hasError, setHasError] = useState<boolean>(false);
 
   const fetchTeamPlayers = useCallback(async () => {
     try {
       const players = await findTeamPlayers(teamId);
       setTeamPlayers(players);
     } catch (error) {
-      console.error(error);
+      setHasError(true);
     } finally {
       setIsLoading(false);
     }
@@ -33,5 +35,6 @@ export default function useTeamPlayers(teamId: string): Params {
   return {
     teamPlayers,
     isLoading,
+    hasError,
   };
 }

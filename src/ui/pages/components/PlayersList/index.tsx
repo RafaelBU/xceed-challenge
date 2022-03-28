@@ -10,13 +10,13 @@ export default function PlayersList({
   teamPlayers: TeamPlayersData;
   visibleTeamPlayers: Player[];
   setVisibleTeamPlayers: Dispatch<SetStateAction<Player[]>>;
-}) {
+}): JSX.Element {
   const [isAscending, setIsAscending] = useState<boolean>(true);
 
   const updateVisiblePlayers = () => {
     const aux = [...visibleTeamPlayers];
     const currentPlayers = aux.length * 2;
-    const newPlayers = teamPlayers?.players.filter(
+    const newPlayers = teamPlayers?.players?.filter(
       (_value, index) => index < currentPlayers
     );
     setVisibleTeamPlayers(newPlayers);
@@ -33,7 +33,7 @@ export default function PlayersList({
   };
 
   const showSeeMoreButtton =
-    visibleTeamPlayers.length < teamPlayers?.players?.length;
+    visibleTeamPlayers?.length < teamPlayers?.players?.length;
 
   return (
     <>
@@ -54,7 +54,7 @@ export default function PlayersList({
         <S.Column>AGE</S.Column>
       </S.Row>
       <S.ContentContainer>
-        {visibleTeamPlayers.map(({ name, nationality, position, age }) => (
+        {visibleTeamPlayers?.map(({ name, nationality, position, age }) => (
           <S.Row key={name}>
             <S.CellBold>{name}</S.CellBold>
             <S.Cell>{nationality}</S.Cell>

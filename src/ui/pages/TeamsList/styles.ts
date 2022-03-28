@@ -12,10 +12,11 @@ const loadAnimation = keyframes`
 export const TeamsContainer = styled.div`
   margin: 0 102px 0 127px;
   height: 468px;
-  padding: 43px 70px 66px 70px;
+  padding: 43px 0 66px 70px;
   border-radius: 6px;
   box-shadow: 0 2px 4px 0 #e2e4e5;
   background-color: #fff;
+  box-sizing: border-box;
 `;
 
 export const Content = styled.div`
